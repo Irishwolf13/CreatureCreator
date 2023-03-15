@@ -13,39 +13,6 @@ User.create(
   email: 'john@rrooney.com'
 )
 
-puts 'Creating Monsters'
-
-Monster.create(
-  user_id: 1,
-  level: 1,
-  hit_points: 10,
-  armor: 0,
-  attack: 10,
-  magic: 10,
-  movement: 10,
-  bio: "This is my first character, Frank."
-)
-Monster.create(
-  user_id: 2,
-  level: 2,
-  hit_points: 20,
-  armor: 0,
-  attack: 20,
-  magic: 20,
-  movement: 20,
-  bio: "This is my second character, Bill."
-)
-Monster.create(
-  user_id: 1,
-  level: 3,
-  hit_points: 30,
-  armor: 0,
-  attack: 30,
-  magic: 30,
-  movement: 30,
-  bio: "This is my second character, Bill."
-)
-
 puts 'seeding looks'
 Look.create(
   race: 'orc',
@@ -111,40 +78,44 @@ Weapon.create(
 #   modifier: 'shock'
 # )
 
-puts 'Creating join Tables for Armor'
-JoinArmor.create(
-  monster_id: 1,
-  armor_id: 1
-)
-JoinArmor.create(
-  monster_id: 2,
-  armor_id: 2
-)
-JoinArmor.create(
-  monster_id: 3,
-  armor_id: 2
-)
+puts 'Creating Monsters'
 
-puts 'Creating join Table for Weapons'
-JoinWeapon.create(
-  monster_id: 1,
-  weapon_id: 2
+Monster.create(
+  user_id: 1,
+  look_id: 1,
+  armor_id: 1,
+  weapon_id: 1,
+  level: 1,
+  hit_points: 10,
+  armor: 0,
+  attack: 10,
+  magic: 10,
+  movement: 10,
+  bio: "This is my first character, Frank."
 )
-JoinWeapon.create(
-  monster_id: 2,
-  weapon_id: 2
+Monster.create(
+  user_id: 2,
+  look_id: 2,
+  armor_id: 3,
+  weapon_id: 1,
+  level: 2,
+  hit_points: 20,
+  armor: 0,
+  attack: 20,
+  magic: 20,
+  movement: 20,
+  bio: "This is my second character, Bill."
 )
-
-puts 'creating join table for looks'
-JoinLook.create(
-  monster_id: 1,
-  look_id: 2
-)
-JoinLook.create(
-  monster_id: 2,
-  look_id: 1
-)
-JoinLook.create(
-  monster_id: 3,
-  look_id: 3
+Monster.create(
+  user_id: 1,
+  look_id: 3,
+  armor_id: 2,
+  weapon_id: 2,
+  level: 3,
+  hit_points: 30,
+  armor: 0,
+  attack: 30,
+  magic: 30,
+  movement: 30,
+  bio: "This is my second character, Bill."
 )

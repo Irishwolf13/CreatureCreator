@@ -28,30 +28,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_053150) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "join_armors", force: :cascade do |t|
-    t.integer "monster_id"
-    t.integer "armor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "join_games", force: :cascade do |t|
     t.integer "game_id"
     t.integer "monster_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "join_looks", force: :cascade do |t|
-    t.integer "monster_id"
-    t.integer "look_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "join_weapons", force: :cascade do |t|
-    t.integer "monster_id"
-    t.integer "weapon_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,6 +44,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_053150) do
 
   create_table "monsters", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "look_id"
+    t.integer "armor_id"
+    t.integer "weapon_id"
     t.integer "level"
     t.integer "hit_points"
     t.integer "armor"

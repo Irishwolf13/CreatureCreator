@@ -1,2 +1,0 @@
-class JoinWeaponsController < ApplicationController
-end

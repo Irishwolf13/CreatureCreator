@@ -2,6 +2,9 @@ class CreateMonsters < ActiveRecord::Migration[7.0]
   def change
     create_table :monsters do |t|
       t.integer :user_id
+      t.integer :look_id
+      t.integer :armor_id
+      t.integer :weapon_id
       t.integer :level
       t.integer :hit_points
       t.integer :armor
