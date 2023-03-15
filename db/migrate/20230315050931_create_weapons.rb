@@ -4,6 +4,7 @@ class CreateWeapons < ActiveRecord::Migration[7.0]
       t.string :style
       t.integer :attack
       t.integer :weight
+      t.string :image
 
       t.timestamps
     end

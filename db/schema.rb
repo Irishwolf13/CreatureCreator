@@ -10,41 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_15_020657) do
-  create_table "armor_augments", force: :cascade do |t|
-    t.integer "armor_id"
-    t.integer "augment_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "armor_templates", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_053150) do
+  create_table "armors", force: :cascade do |t|
     t.string "material"
-    t.integer "defense_rating"
+    t.integer "defense"
     t.integer "weight"
     t.integer "movement_reduction"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "image"
-  end
-
-  create_table "augment_templates", force: :cascade do |t|
-    t.string "type"
-    t.string "modifier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "creature_armors", force: :cascade do |t|
-    t.integer "creature_instance_id"
-    t.integer "armor_template_id"
+  create_table "games", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "difficulty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "creature_instances", force: :cascade do |t|
-    t.integer "game_creature_id"
-    t.integer "creature_template_id"
+  create_table "join_armors", force: :cascade do |t|
+    t.integer "monster_id"
+    t.integer "armor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "join_games", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "monster_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "join_looks", force: :cascade do |t|
+    t.integer "monster_id"
+    t.integer "look_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "join_weapons", force: :cascade do |t|
+    t.integer "monster_id"
+    t.integer "weapon_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "looks", force: :cascade do |t|
+    t.string "race"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "monsters", force: :cascade do |t|
     t.integer "user_id"
     t.integer "level"
     t.integer "hit_points"
@@ -57,34 +76,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_020657) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "creature_templates", force: :cascade do |t|
-    t.string "race"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "creature_weapons", force: :cascade do |t|
-    t.integer "creature_instance_id"
-    t.integer "weapon_template_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "game_creatures", force: :cascade do |t|
-    t.integer "game_id"
-    t.integer "creature_instance_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "game_instances", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "difficulty"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
@@ -93,20 +84,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_020657) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "weapon_augments", force: :cascade do |t|
-    t.integer "weapon_id"
-    t.integer "augment_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "weapon_templates", force: :cascade do |t|
+  create_table "weapons", force: :cascade do |t|
     t.string "style"
-    t.integer "attack_rating"
+    t.integer "attack"
     t.integer "weight"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
   end
 
 end

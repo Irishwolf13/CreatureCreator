@@ -5,6 +5,7 @@ class CreateArmors < ActiveRecord::Migration[7.0]
       t.integer :defense
       t.integer :weight
       t.integer :movement_reduction
+      t.string :image
 
       t.timestamps
     end

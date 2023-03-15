@@ -1,6 +1,6 @@
-class CreateCreatures < ActiveRecord::Migration[7.0]
+class CreateMonsters < ActiveRecord::Migration[7.0]
   def change
-    create_table :creatures do |t|
+    create_table :monsters do |t|
       t.integer :user_id
       t.integer :level
       t.integer :hit_points

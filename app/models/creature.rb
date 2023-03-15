@@ -1,2 +1,0 @@
-class Creature < ApplicationRecord
-end

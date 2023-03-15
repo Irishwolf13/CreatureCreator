@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :monsters
   resources :join_looks
   resources :join_weapons
   resources :join_armors
@@ -7,7 +8,6 @@ Rails.application.routes.draw do
   resources :weapons
   resources :armors
   resources :looks
-  resources :creatures
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
