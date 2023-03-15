@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_15_013321) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_020657) do
   create_table "armor_augments", force: :cascade do |t|
     t.integer "armor_id"
     t.integer "augment_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_013321) do
     t.integer "movement_reduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "augment_templates", force: :cascade do |t|
@@ -105,6 +106,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_013321) do
     t.integer "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
 end
