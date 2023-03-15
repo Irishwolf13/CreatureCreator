@@ -1,0 +1,2 @@
+class CreatureArmorsController < ApplicationController
+end

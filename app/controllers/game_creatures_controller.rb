@@ -1,0 +1,2 @@
+class GameCreaturesController < ApplicationController
+end

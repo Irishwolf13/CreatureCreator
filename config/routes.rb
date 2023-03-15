@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :creature_weapons
+  resources :creature_armors
+  resources :game_creatures
   resources :armor_augments
   resources :weapon_augments
   resources :game_instances
