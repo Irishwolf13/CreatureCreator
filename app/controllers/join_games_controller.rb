@@ -1,0 +1,2 @@
+class JoinGamesController < ApplicationController
+end

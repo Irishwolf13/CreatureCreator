@@ -1,2 +1,0 @@
-class ArmorTemplatesController < ApplicationController
-end

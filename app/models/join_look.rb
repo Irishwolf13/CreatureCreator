@@ -1,0 +1,2 @@
+class JoinLook < ApplicationRecord
+end

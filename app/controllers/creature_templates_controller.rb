@@ -1,2 +1,0 @@
-class CreatureTemplatesController < ApplicationController
-end

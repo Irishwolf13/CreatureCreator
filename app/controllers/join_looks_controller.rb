@@ -1,0 +1,2 @@
+class JoinLooksController < ApplicationController
+end

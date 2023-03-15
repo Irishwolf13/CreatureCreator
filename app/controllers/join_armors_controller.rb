@@ -1,0 +1,2 @@
+class JoinArmorsController < ApplicationController
+end

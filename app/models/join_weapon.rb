@@ -1,0 +1,2 @@
+class JoinWeapon < ApplicationRecord
+end

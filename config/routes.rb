@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
-  resources :creature_weapons
-  resources :creature_armors
-  resources :game_creatures
-  resources :armor_augments
-  resources :weapon_augments
-  resources :game_instances
-  resources :augment_templates
-  resources :weapon_templates
-  resources :armor_templates
-  resources :creature_templates
-  resources :creature_instances
+  resources :join_looks
+  resources :join_weapons
+  resources :join_armors
+  resources :join_games
+  resources :games
+  resources :weapons
+  resources :armors
+  resources :looks
+  resources :creatures
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

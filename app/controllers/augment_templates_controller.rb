@@ -1,2 +1,0 @@
-class AugmentTemplatesController < ApplicationController
-end

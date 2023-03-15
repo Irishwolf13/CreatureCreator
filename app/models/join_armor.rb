@@ -1,0 +1,2 @@
+class JoinArmor < ApplicationRecord
+end

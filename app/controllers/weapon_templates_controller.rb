@@ -1,2 +1,0 @@
-class WeaponTemplatesController < ApplicationController
-end

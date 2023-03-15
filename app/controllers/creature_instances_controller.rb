@@ -1,2 +1,0 @@
-class CreatureInstancesController < ApplicationController
-end
