@@ -3,6 +3,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 import DragDrop from './components/DragDrop';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <Routes>
           <Route 
             path="/" 
-            element={<DragDrop />}
+            element={<HomePage />}
           />
         </Routes>
       </DndProvider>
