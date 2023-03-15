@@ -5,6 +5,7 @@ class CreateMonsters < ActiveRecord::Migration[7.0]
       t.integer :look_id
       t.integer :armor_id
       t.integer :weapon_id
+      t.string :monster_name
       t.integer :level
       t.integer :hit_points
       t.integer :armor

@@ -64,22 +64,8 @@ Weapon.create(
   image: "https://cdna.artstation.com/p/assets/images/images/015/392/436/small/alekzander-zagorulko-insta-007.jpg?1548166877"  
 )
 
-# puts 'seeding augments'
-# Augment.create(
-#   type: 'fire'
-#   modifier: 'flame'
-# )
-# Augment.create(
-#   type: 'cold'
-#   modifier: 'chill'
-# )
-# Augment.create(
-#   type: 'electric'
-#   modifier: 'shock'
-# )
 
 puts 'Creating Monsters'
-
 Monster.create(
   user_id: 1,
   look_id: 1,
@@ -91,6 +77,7 @@ Monster.create(
   attack: 10,
   magic: 10,
   movement: 10,
+  monster_name: 'Frank',
   bio: "This is my first character, Frank."
 )
 Monster.create(
@@ -104,6 +91,7 @@ Monster.create(
   attack: 20,
   magic: 20,
   movement: 20,
+  monster_name: 'Bill',
   bio: "This is my second character, Bill."
 )
 Monster.create(
@@ -117,5 +105,37 @@ Monster.create(
   attack: 30,
   magic: 30,
   movement: 30,
-  bio: "This is my second character, Bill."
+  monster_name: 'Bubbles',
+  bio: "This is my second character, Bubbles."
+)
+
+puts 'Creating Games'
+Game.create(
+  user_id: 1,
+  difficulty: 5
+)
+Game.create(
+  user_id: 2,
+  difficulty: 5
+)
+
+JoinGame.create(
+  game_id: 1,
+  monster_id: 1,
+  monster_count: 10
+)
+JoinGame.create(
+  game_id: 1,
+  monster_id: 2,
+  monster_count: 5
+)
+JoinGame.create(
+  game_id: 2,
+  monster_id: 2,
+  monster_count: 20
+)
+JoinGame.create(
+  game_id: 2,
+  monster_id: 3,
+  monster_count: 3
 )

@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_053150) do
   create_table "join_games", force: :cascade do |t|
     t.integer "game_id"
     t.integer "monster_id"
+    t.integer "monster_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_053150) do
     t.integer "look_id"
     t.integer "armor_id"
     t.integer "weapon_id"
+    t.string "monster_name"
     t.integer "level"
     t.integer "hit_points"
     t.integer "armor"

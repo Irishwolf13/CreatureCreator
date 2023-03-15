@@ -1,3 +1,4 @@
 class JoinGameSerializer < ActiveModel::Serializer
-  attributes :id, :game_id, :creature_id
+  attributes :game, :monster_count, :monster
+
 end
