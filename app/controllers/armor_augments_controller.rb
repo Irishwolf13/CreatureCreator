@@ -1,0 +1,2 @@
+class ArmorAugmentsController < ApplicationController
+end

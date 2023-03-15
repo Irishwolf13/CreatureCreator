@@ -1,0 +1,2 @@
+module WeaponAugmentsHelper
+end

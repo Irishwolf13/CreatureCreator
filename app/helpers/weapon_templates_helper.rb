@@ -1,0 +1,2 @@
+module WeaponTemplatesHelper
+end
