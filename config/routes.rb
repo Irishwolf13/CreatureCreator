@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   #Custom Routes
   post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/authorized', to: 'users#show'
 end

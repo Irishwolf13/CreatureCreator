@@ -1,24 +1,25 @@
-import { React, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Login({ setUser }) {
+  //allow navigation
+  const navigate = useNavigate();
 
-  const navigate = useNavigate(); //allow navigation
-
-  const initialState = { // Creates the initial state of blank
+  // Creates the initial state of blank
+  const initialState = {
     username: '',
     password: ''
   };
   const [formState, setFormState] = useState(initialState);
 
-  const handleChange = (e) => { // Handle user Input
+  // Handle user Input
+  const handleChange = (e) => {
     setFormState({...formState, [e.target.name]: e.target.value});
   }
 
-  const handleSubmit = (e) => {  //handle submission
+  //handle submission
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // navigate('/')
-    // console.log(formState.username, formState.password)
     fetch('http://localhost:3000/login',{
       method:'POST',
       headers:{'Content-Type': 'application/json'},
@@ -27,7 +28,10 @@ function Login() {
     .then(res => {
       if(res.ok){
         res.json().then(obj => {
-          navigate('/')
+          setUser(obj)
+          console.log('Iran')
+          console.log(obj)
+          // navigate('/')
         })
       } else {
         res.json().then(data => console.log(data))
@@ -35,6 +39,21 @@ function Login() {
     })
   }
 
+  //handles logout clicked
+  const handleOnDelete = () => {
+    fetch('http://localhost:3000/logout', {
+      method: 'DELETE',
+    })
+    .then(res => {
+      if (res.ok) {
+        alert('Logged out')
+        // navigate('/login')
+      } else {
+        console.log('else: ')
+        //handle errors
+      }
+    })
+  }
   return (
     <>
       <div>Login</div>
@@ -44,6 +63,9 @@ function Login() {
             <input name="password" type="password" required onChange={handleChange} value={formState.password} placeholder="password"/>
             <button type="submit">Login</button>
         </form>
+        <div>
+        <button onClick={handleOnDelete}>LogOut</button>
+        </div>
       </div>
     </>
   );
