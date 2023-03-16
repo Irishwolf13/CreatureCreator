@@ -1,4 +1,4 @@
-import { React, useContext, useState, useEffect } from 'react'
+import { React, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -15,10 +15,24 @@ function Login() {
     setFormState({...formState, [e.target.name]: e.target.value});
   }
 
-  const handleSubmit = (e) => { // Handle when user submits form
+  const handleSubmit = (e) => {  //handle submission
     e.preventDefault();
-    setFormState(initialState)
-    navigate('/')
+    // navigate('/')
+    // console.log(formState.username, formState.password)
+    fetch('http://localhost:3000/login',{
+      method:'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify(formState)
+    })
+    .then(res => {
+      if(res.ok){
+        res.json().then(obj => {
+          navigate('/')
+        })
+      } else {
+        res.json().then(data => console.log(data))
+      }
+    })
   }
 
   return (
