@@ -51,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_053150) do
     t.string "monster_name"
     t.integer "level"
     t.integer "hit_points"
-    t.integer "armor"
+    t.integer "base_armor"
     t.integer "attack"
     t.integer "magic"
     t.integer "movement"

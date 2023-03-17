@@ -1,3 +1,3 @@
 class Weapon < ApplicationRecord
-  belongs_to :monster
+  has_many :monsters
 end

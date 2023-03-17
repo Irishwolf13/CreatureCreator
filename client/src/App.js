@@ -4,8 +4,10 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { React, useEffect, useState } from "react";
 
 // import DragDrop from './components/DragDrop';
+import './App.css'
 import HomePage from './components/HomePage';
 import CreateMonster from './components/CreateMonster';
+import ChooseMonster from './components/ChooseMonster';
 import Login from './components/Login';
 import ShowMonsters from './components/ShowMonsters';
 import Signup from './components/Signup';
@@ -18,7 +20,7 @@ function App() {
     fetch('/authorized')
     .then(res => {
       if(res.ok) {
-        res.json().then(user => setUser(user))
+        res.json().then(data => console.log(data))
       } else {
         setUser(null)
       }
@@ -45,12 +47,16 @@ function App() {
             element={<Signup />}
           />
           <Route
-            path="/create/monster"
-            element={<CreateMonster />}
+            path="/choose/monster"
+            element={<ChooseMonster />}
           />
           <Route
             path="/show/monsters/"
             element={<ShowMonsters />}
+          />
+          <Route
+            path="/create/monster/"
+            element={<CreateMonster />}
           />
         </Routes>
       </DndProvider>

@@ -1,8 +1,7 @@
 function CreateMonster() {
-
   return (
     <>
-      <div>Create Monsters</div>
+      <div>Create Monster</div>
     </>
   );
 }

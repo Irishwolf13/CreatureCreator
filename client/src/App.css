@@ -22,3 +22,14 @@ img {
   height: 500px;
   border: 2px solid rgb(255, 0, 0);
 }
+
+.monsterCard {
+  max-width: 200px;
+}
+.lookButton {
+  border-color: rgb(0, 0, 0);
+}
+
+.lookButton.selected {
+  border-color: red;
+}

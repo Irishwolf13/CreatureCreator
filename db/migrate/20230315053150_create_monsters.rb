@@ -8,7 +8,7 @@ class CreateMonsters < ActiveRecord::Migration[7.0]
       t.string :monster_name
       t.integer :level
       t.integer :hit_points
-      t.integer :armor
+      t.integer :base_armor
       t.integer :attack
       t.integer :magic
       t.integer :movement

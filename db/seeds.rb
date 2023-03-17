@@ -12,7 +12,6 @@ User.create(
   password: 'john',
   email: 'john@rrooney.com'
 )
-
 puts 'seeding looks'
 Look.create(
   race: 'orc',
@@ -63,8 +62,6 @@ Weapon.create(
   weight: 2,
   image: "https://cdna.artstation.com/p/assets/images/images/015/392/436/small/alekzander-zagorulko-insta-007.jpg?1548166877"  
 )
-
-
 puts 'Creating Monsters'
 Monster.create(
   user_id: 1,
@@ -73,7 +70,7 @@ Monster.create(
   weapon_id: 1,
   level: 1,
   hit_points: 10,
-  armor: 0,
+  base_armor: 0,
   attack: 10,
   magic: 10,
   movement: 10,
@@ -87,7 +84,7 @@ Monster.create(
   weapon_id: 1,
   level: 2,
   hit_points: 20,
-  armor: 0,
+  base_armor: 0,
   attack: 20,
   magic: 20,
   movement: 20,
@@ -101,7 +98,7 @@ Monster.create(
   weapon_id: 2,
   level: 3,
   hit_points: 30,
-  armor: 0,
+  base_armor: 0,
   attack: 30,
   magic: 30,
   movement: 30,
