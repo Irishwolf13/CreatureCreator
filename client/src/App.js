@@ -26,6 +26,7 @@ function App() {
       movement: 1,
       bio: ''
     });
+  const [monsters, setMonsters] = useState([]);
 
   useEffect(() => {
     fetch('/authorized')
@@ -36,6 +37,9 @@ function App() {
         setUser(null)
       }
     })
+    fetch('http://localhost:3000/looks')
+      .then(response => response.json())
+      .then(data => setMonsters(data));
   },[])
 
   const updateUser = (user) => setUser(user)
@@ -59,7 +63,12 @@ function App() {
           />
           <Route
             path="/choose/monster"
-            element={<ChooseMonster user={user} monsterState={monsterState} setMonsterState={setMonsterState}/>}
+            element={<ChooseMonster 
+              user={user} 
+              monsterState={monsterState} 
+              setMonsterState={setMonsterState}
+              monsters={monsters}
+              />}
           />
           <Route
             path="/show/monsters/"
@@ -67,7 +76,12 @@ function App() {
           />
           <Route
             path="/create/monster/"
-            element={<CreateMonster user={user} monsterState={monsterState} setMonsterState={setMonsterState}/>}
+            element={<CreateMonster 
+              user={user} 
+              monsterState={monsterState} 
+              setMonsterState={setMonsterState}
+              monsters={monsters}
+              />}
           />
         </Routes>
       </DndProvider>

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import MonsterImageCard from './MonsterImageCard.js'
 import { useNavigate } from 'react-router-dom';
 
-function ChooseMonster({user, setMonsterState, monsterState}) {
-  
-  const [monsters, setMonsters] = useState([]);
+function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
+
   const [filterName, setFilterName] = useState('');
  console.log(monsterState)
   //allow navigation
@@ -15,12 +14,6 @@ function ChooseMonster({user, setMonsterState, monsterState}) {
     setMonsterState(prevState => ({ ...prevState, user: user.id }));
     navigate('/create/monster')
   }
-
-  useEffect(() => {
-    fetch('http://localhost:3000/looks')
-      .then(response => response.json())
-      .then(data => setMonsters(data));
-  }, []);
 
   const handleClick = (lookID) => {
     setMonsterState(prevState => ({ ...prevState, look_id: lookID}));

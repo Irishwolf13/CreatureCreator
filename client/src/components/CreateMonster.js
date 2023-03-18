@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDrop } from 'react-dnd'
 import Picture from './Picture';
 import Weapons from './Weapons';
+import MonsterImageCard from './MonsterImageCard.js'
 
 const armorList = [
   {
@@ -29,7 +30,7 @@ const weaponList = [
 ]
 
 
-function CreateMonster({user, setMonsterState, monsterState}) {
+function CreateMonster({user, setMonsterState, monsterState, monsters}) {
   //States
   const [armorBoard, setArmorBoard] = useState([])
   const [weaponBoard, setWeaponBoard] = useState([])
@@ -120,6 +121,18 @@ function CreateMonster({user, setMonsterState, monsterState}) {
     );
   });
   
+
+  const viewMonsters = () => {
+    return monsters.filter(monster => monster.id === monsterState.look_id).map(monster => (
+      <MonsterImageCard
+        key={monster.id}
+        url={monster.image}
+        id={monster.id}
+        selected={monsterState.selectedButton === monster.id}
+      />
+    ))
+  };
+
   return (
     <>
     <div>
@@ -150,6 +163,7 @@ function CreateMonster({user, setMonsterState, monsterState}) {
         <textarea id="bio" name="bio" value={monsterState.bio} onChange={(e) => setMonsterState(prevState => ({ ...prevState, bio: e.target.value }))} />
       </form>
     </div>
+    <div>{viewMonsters()}</div>
     <div className='Pictures'>{myArmors}</div>
     <div className='Pictures'>{myWeapons}</div>
     <div className='Board' ref={dropBoard}>{myArmorBoard}</div>
