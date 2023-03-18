@@ -163,11 +163,13 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
         <textarea id="bio" name="bio" value={monsterState.bio} onChange={(e) => setMonsterState(prevState => ({ ...prevState, bio: e.target.value }))} />
       </form>
     </div>
-    <div>{viewMonsters()}</div>
+    <div>
+      {viewMonsters()}
+      <div className='Board' ref={dropBoard}>{myArmorBoard}</div>
+      <div className='Board' ref={dropWeaponBoard}>{myWeaponBoard}</div>
+    </div>
     <div className='Pictures'>{myArmors}</div>
     <div className='Pictures'>{myWeapons}</div>
-    <div className='Board' ref={dropBoard}>{myArmorBoard}</div>
-    <div className='Board' ref={dropWeaponBoard}>{myWeaponBoard}</div>
   </>
   )
 }
