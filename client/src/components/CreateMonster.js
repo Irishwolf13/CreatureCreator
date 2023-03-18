@@ -3,6 +3,7 @@ import { useDrop } from 'react-dnd'
 import Picture from './Picture';
 import Weapons from './Weapons';
 import MonsterImageCard from './MonsterImageCard.js'
+import { useNavigate } from 'react-router-dom';
 
 const armorList = [
   {
@@ -31,6 +32,8 @@ const weaponList = [
 
 
 function CreateMonster({user, setMonsterState, monsterState, monsters}) {
+  //allow navigation
+  const navigate = useNavigate();
   //States
   const [armorBoard, setArmorBoard] = useState([])
   const [weaponBoard, setWeaponBoard] = useState([])
@@ -67,7 +70,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
       setMonsterState(prevState => ({ ...prevState, armor_id: id}));
     }
   }
-  console.log(monsterState)
+  //console.log(monsterState)
   // Adding images to boards
   const addWeaponToBoard = (id) => {
     const myWeapons = weaponList.filter((weapon) => id === weapon.id)
@@ -100,9 +103,9 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
     const myWeapons = weaponBoard.filter((weapon) => id == weapon.id)
     const newWeaponBoard = weaponBoard.filter((weapon) => id !== weapon.id)
     setDeletedItems([...deletedItems, myWeapons[0]])
-    setWeaponBoard(newWeaponBoard) 
+    setWeaponBoard(newWeaponBoard)
   }
-  
+
   const myArmorBoard = armorBoard.map((armor) => {
     return (
       <div key={armor.id}>
@@ -133,10 +136,33 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
     ))
   };
 
+  const checkAugments = () => {
+    //Going to check for augments, and then change boarder accordingly to Blue, Red, or Yellow
+    return 'fullBoard'
+  }
+
+  const handleReset = () => {
+    setMonsterState(
+      { monster_name: 'Frank',
+        look_id: 1,
+        user: user.id,
+        level: 1,
+        hit_points: 1,
+        base_armor: 1,
+        attack: 1,
+        magic: 1,
+        movement: 1,
+        bio: ''
+      })
+    navigate('/choose/monster')
+  }
   return (
     <>
     <div>
       <form>
+        <label htmlFor="input0">Creature Name:</label>
+        <input type="text" value={monsterState.monster_name} onChange={(e) => setMonsterState(prevState => ({ ...prevState, monster_name: e.target.value }))} />
+        <br></br>
         <label htmlFor="input1">Level: </label>
         <input type="number" id="input1" name="level" value={monsterState.level} onChange={(e) => setMonsterState(prevState => ({ ...prevState, level: parseInt(e.target.value) }))} />
         <br></br>
@@ -160,16 +186,18 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
     <div>
       <form>
         <label htmlFor="bio">Bio</label><br></br>
-        <textarea id="bio" name="bio" value={monsterState.bio} onChange={(e) => setMonsterState(prevState => ({ ...prevState, bio: e.target.value }))} />
+        <textarea id="bio" name="bio" className='textBox' value={monsterState.bio} onChange={(e) => setMonsterState(prevState => ({ ...prevState, bio: e.target.value }))} />
       </form>
     </div>
     <div>
       {viewMonsters()}
-      <div className='Board' ref={dropBoard}>{myArmorBoard}</div>
-      <div className='Board' ref={dropWeaponBoard}>{myWeaponBoard}</div>
+      <div className={armorBoard.length>0 ? checkAugments() : 'Board'} ref={dropBoard}>{myArmorBoard}</div>
+      <div className={weaponBoard.length>0 ? checkAugments() : 'Board'} ref={dropWeaponBoard}>{myWeaponBoard}</div>
     </div>
     <div className='Pictures'>{myArmors}</div>
     <div className='Pictures'>{myWeapons}</div>
+    <button onClick={handleReset}> RESET </button>
+    <button> Save </button>
   </>
   )
 }

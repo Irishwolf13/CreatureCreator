@@ -18,13 +18,17 @@ img {
   border: 2px solid black;
 }
 
-.WeaponBoard {
+.fullBoard {
   display: inline-block;
   width: 200px;
   height: 200px;
   border: 2px solid rgb(255, 0, 0);
 }
-
+.textBox {
+  resize: none;
+  height: 70px;
+  width: 25em;
+}
 .monsterCard {
   max-width: 200px;
 }

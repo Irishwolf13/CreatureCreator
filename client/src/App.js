@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { React, useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 // import DragDrop from './components/DragDrop';
 import './App.css'
@@ -13,10 +14,12 @@ import ShowMonsters from './components/ShowMonsters';
 import Signup from './components/Signup';
 
 function App() {
+  //allow navigation
+  const navigate = useNavigate();
   const [user, setUser] = useState({user_id: 0})
   const [monsterState, setMonsterState] = useState(
-    { monster_name: '',
-      look_id: '',
+    { monster_name: 'Frank',
+      look_id: 1,
       user:user.id,
       level: 1,
       hit_points: 1,
@@ -32,7 +35,7 @@ function App() {
     fetch('/authorized')
     .then(res => {
       if(res.ok) {
-        res.json().then(data => console.log(data))
+        // res.json().then(data => console.log(data))
       } else {
         setUser(null)
       }
@@ -42,12 +45,32 @@ function App() {
       .then(data => setMonsters(data));
   },[])
 
+  //handles logout clicked
+  const handleLogOut = () => {
+    //console.log(user)
+    fetch('http://localhost:3000/logout', {
+      method: 'DELETE',
+    })
+    .then(res => {
+      if (res.ok) {
+        //console.log(user)
+        alert('Logged out')
+        navigate('/')
+      } else {
+        //console.log('else: ')
+        //console.log(user)
+        //handle errors
+      }
+    })
+  }
+
   const updateUser = (user) => setUser(user)
   // console.log('My user is:')
   // console.log(user)
   return (
     <div className="App">
       <DndProvider backend={ HTML5Backend }>
+        <button onClick={handleLogOut}>LogOut</button>
         <Routes>
           <Route
             path="/"

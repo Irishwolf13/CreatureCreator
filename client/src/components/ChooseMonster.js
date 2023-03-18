@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
 
   const [filterName, setFilterName] = useState('');
- console.log(monsterState)
+  const [selectedMonster, setSelectedMonster] = useState('');
+  // console.log(monsterState)
+
   //allow navigation
   const navigate = useNavigate();
 
@@ -17,6 +19,7 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
 
   const handleClick = (lookID) => {
     setMonsterState(prevState => ({ ...prevState, look_id: lookID}));
+    setSelectedMonster(prevState => ({ ...prevState, look_id: lookID}));
   }
 
   const viewMonsters = () => {
@@ -26,7 +29,7 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
         url={monster.image}
         id={monster.id}
         onClick={() => handleClick(monster.id)}
-        selected={monsterState.selectedButton === monster.id}
+        selected={selectedMonster.look_id === monster.id}
       />
     ))
   };

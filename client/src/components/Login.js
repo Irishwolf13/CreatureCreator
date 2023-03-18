@@ -39,21 +39,6 @@ function Login({ setUser }) {
     })
   }
 
-  //handles logout clicked
-  const handleOnDelete = () => {
-    fetch('http://localhost:3000/logout', {
-      method: 'DELETE',
-    })
-    .then(res => {
-      if (res.ok) {
-        alert('Logged out')
-        // navigate('/login')
-      } else {
-        console.log('else: ')
-        //handle errors
-      }
-    })
-  }
   return (
     <>
       <div>Login</div>
@@ -63,9 +48,6 @@ function Login({ setUser }) {
             <input name="password" type="password" required onChange={handleChange} value={formState.password} placeholder="password"/>
             <button type="submit">Login</button>
         </form>
-        <div>
-        <button onClick={handleOnDelete}>LogOut</button>
-        </div>
       </div>
     </>
   );
