@@ -12,14 +12,14 @@ img {
 }
 
 .Board {
-  width: 300px;
-  height: 500px;
+  width: 200px;
+  height: 200px;
   border: 2px solid black;
 }
 
 .WeaponBoard {
-  width: 300px;
-  height: 500px;
+  width: 200px;
+  height: 200px;
   border: 2px solid rgb(255, 0, 0);
 }
 
@@ -32,4 +32,14 @@ img {
 
 .lookButton.selected {
   border-color: red;
+}
+
+.imageHolder {
+  position: relative;
+  display: inline-block;
+}
+.removeButton {
+  position: absolute;
+  bottom: 30px;
+  left: 110px;
 }

@@ -16,13 +16,16 @@ function Weapon({ id, url }) {
   }
 
   return(
-    <img
-      onClick={handleClick}
-      ref={drag}
-      src={url}
-      width="150px"
-      style={{border: isDragging ? "2px solid blue" : "0px"}}
-    />
+    <>
+      <div className='imageHolder'>
+        <img
+          ref={drag}
+          src={url}
+          width="150px"
+          style={{ border: isDragging ? "2px solid blue" : "0px" }}
+        />
+      </div>
+    </>
   );
 }
 
