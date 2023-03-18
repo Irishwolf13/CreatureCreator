@@ -6,27 +6,31 @@ import Weapons from './Weapons';
 const armorList = [
   {
     id: 1,
-    url: "https://www.kidsmathgamesonline.com/images/pictures/numbers600/number1.jpg"
+    url: "https://cdn.vectorstock.com/i/1000x1000/96/54/old-armor-icon-cartoon-style-vector-10979654.webp"
   },
   {
     id: 2,
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG1OX6r_H8VLliuAsMYNYdfvN8ImFhUt8ntw&usqp=CAU"
+    url: "https://cdn.vectorstock.com/i/1000x1000/21/05/medieval-knight-armor-icon-cartoon-style-vector-9352105.webp"
   },
   {
     id: 3,
-    url: "https://us.123rf.com/450wm/inkdrop/inkdrop1903/inkdrop190301379/119198987-gold-glitter-number-3-shiny-sparkling-golden-number-3d-rendering.jpg?ver=6"
+    url: "https://cdn.vectorstock.com/i/1000x1000/01/19/knight-armor-and-helmet-fantasy-icon-vector-23910119.webp"
   }
 ]
 const weaponList = [
   {
-    id: 3,
-    url: "https://us.123rf.com/450wm/inkdrop/inkdrop1903/inkdrop190301379/119198987-gold-glitter-number-3-shiny-sparkling-golden-number-3d-rendering.jpg?ver=6"
+    id: 4,
+    url: "https://as1.ftcdn.net/v2/jpg/02/11/60/42/1000_F_211604262_bKDbW9tqWQ763xap5BVkTb39NefLqKoH.jpg"
+  },
+  {
+    id: 5,
+    url: "https://c8.alamy.com/comp/G1C0EH/sword-cartoon-illustration-G1C0EH.jpg"
   }
 ]
 
 
 function CreateMonster({user, setMonsterState, monsterState}) {
-
+  //States
   const [armorBoard, setArmorBoard] = useState([])
   const [weaponBoard, setWeaponBoard] = useState([])
   const [deletedItems, setDeletedItems] = useState([])
@@ -55,21 +59,24 @@ function CreateMonster({user, setMonsterState, monsterState}) {
     const filteredPictures = armorList.filter((armor) => id === armor.id)
     const newArmorBoard = [...armorBoard]
     const existingItem = newArmorBoard.find((armor) => armor.id === id)
-    //Checks to see if item is already occupied
     if (!existingItem) {
       newArmorBoard.push(filteredPictures[0])
       setArmorBoard(newArmorBoard)
+      console.log(id)
+      setMonsterState(prevState => ({ ...prevState, armor_id: id}));
     }
   }
-
+  console.log(monsterState)
+  // Adding images to boards
   const addWeaponToBoard = (id) => {
     const myWeapons = weaponList.filter((weapon) => id === weapon.id)
     const newWeaponBoard = [...weaponBoard]
     const existingItem = newWeaponBoard.find((weapon) => weapon.id === id)
-
+    
     if (!existingItem) {
       newWeaponBoard.push(myWeapons[0])
       setWeaponBoard(newWeaponBoard)
+      setMonsterState(prevState => ({ ...prevState, weapon_id: id}));
     }
   }
   // Armors

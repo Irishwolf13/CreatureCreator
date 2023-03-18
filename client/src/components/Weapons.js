@@ -22,7 +22,7 @@ function Weapon({ id, url }) {
           ref={drag}
           src={url}
           width="150px"
-          style={{ border: isDragging ? "2px solid blue" : "0px" }}
+          // style={{ border: isDragging ? "2px solid blue" : "0px" }}
         />
       </div>
     </>
