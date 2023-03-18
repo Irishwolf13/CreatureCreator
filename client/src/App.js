@@ -13,8 +13,8 @@ import ShowMonsters from './components/ShowMonsters';
 import Signup from './components/Signup';
 
 function App() {
-
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState({user_id: 0})
+  const [monsterState, setMonsterState] = useState({ monster_name: '', look_id: '', user:user.id });
 
   useEffect(() => {
     fetch('/authorized')
@@ -48,7 +48,7 @@ function App() {
           />
           <Route
             path="/choose/monster"
-            element={<ChooseMonster />}
+            element={<ChooseMonster user={user} monsterState={monsterState} setMonsterState={setMonsterState}/>}
           />
           <Route
             path="/show/monsters/"
@@ -56,7 +56,7 @@ function App() {
           />
           <Route
             path="/create/monster/"
-            element={<CreateMonster />}
+            element={<CreateMonster user={user} monsterState={monsterState} setMonsterState={setMonsterState}/>}
           />
         </Routes>
       </DndProvider>

@@ -31,7 +31,7 @@ function Login({ setUser }) {
           setUser(obj)
           console.log('Iran')
           console.log(obj)
-          // navigate('/')
+          navigate('/choose/monster')
         })
       } else {
         res.json().then(data => console.log(data))

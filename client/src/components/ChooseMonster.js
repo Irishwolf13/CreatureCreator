@@ -2,18 +2,17 @@ import React, { useState, useEffect } from 'react';
 import MonsterImageCard from './MonsterImageCard.js'
 import { useNavigate } from 'react-router-dom';
 
-function ChooseMonster() {
-  const [creatureName, setCreatureName] = useState('');
+function ChooseMonster({user, setMonsterState, monsterState}) {
+  
   const [monsters, setMonsters] = useState([]);
   const [filterName, setFilterName] = useState('');
-  const [selectedButton, setSelectedButton] = useState("");
-  
+ console.log(monsterState)
   //allow navigation
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Submitted creature name:', creatureName);
+    setMonsterState(prevState => ({ ...prevState, user: user.id }));
     navigate('/create/monster')
   }
 
@@ -24,8 +23,7 @@ function ChooseMonster() {
   }, []);
 
   const handleClick = (lookID) => {
-    console.log(lookID)
-    setSelectedButton(lookID);
+    setMonsterState(prevState => ({ ...prevState, look_id: lookID}));
   }
 
   const viewMonsters = () => {
@@ -35,7 +33,7 @@ function ChooseMonster() {
         url={monster.image}
         id={monster.id}
         onClick={() => handleClick(monster.id)}
-        selected={selectedButton === monster.id}
+        selected={monsterState.selectedButton === monster.id}
       />
     ))
   };
@@ -46,7 +44,7 @@ function ChooseMonster() {
       <form onSubmit={handleSubmit}>
         <label>
           Creature Name:
-          <input type="text" value={creatureName} onChange={(e) => setCreatureName(e.target.value)} />
+          <input type="text" value={monsterState.monster_name} onChange={(e) => setMonsterState(prevState => ({ ...prevState, monster_name: e.target.value }))} />
         </label>
         <button type="submit">Create Monster</button>
       </form>
