@@ -14,7 +14,18 @@ import Signup from './components/Signup';
 
 function App() {
   const [user, setUser] = useState({user_id: 0})
-  const [monsterState, setMonsterState] = useState({ monster_name: '', look_id: '', user:user.id });
+  const [monsterState, setMonsterState] = useState(
+    { monster_name: '',
+      look_id: '',
+      user:user.id,
+      level: 1,
+      hit_points: 1,
+      base_armor: 1,
+      attack: 1,
+      magic: 1,
+      movement: 1,
+      bio: ''
+    });
 
   useEffect(() => {
     fetch('/authorized')
@@ -28,8 +39,8 @@ function App() {
   },[])
 
   const updateUser = (user) => setUser(user)
-  console.log('My user is:')
-  console.log(user)
+  // console.log('My user is:')
+  // console.log(user)
   return (
     <div className="App">
       <DndProvider backend={ HTML5Backend }>

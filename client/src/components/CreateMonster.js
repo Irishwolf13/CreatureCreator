@@ -62,7 +62,7 @@ function CreateMonster({user, setMonsterState, monsterState}) {
     if (!existingItem) {
       newArmorBoard.push(filteredPictures[0])
       setArmorBoard(newArmorBoard)
-      console.log(id)
+      // console.log(id)
       setMonsterState(prevState => ({ ...prevState, armor_id: id}));
     }
   }
@@ -122,11 +122,39 @@ function CreateMonster({user, setMonsterState, monsterState}) {
   
   return (
     <>
-      <div className='Pictures'> { myArmors } </div>
-      <div className='Pictures'> { myWeapons }</div>
-      <div className='Board' ref={dropBoard}> { myArmorBoard } </div>
-      <div className='Board' ref={dropWeaponBoard}> { myWeaponBoard } </div>
-    </>
+    <div>
+      <form>
+        <label htmlFor="input1">Level: </label>
+        <input type="number" id="input1" name="level" value={monsterState.level} onChange={(e) => setMonsterState(prevState => ({ ...prevState, level: parseInt(e.target.value) }))} />
+        <br></br>
+        <label htmlFor="input2">Hit Points: </label>
+        <input type="number" id="input2" name="hit_points" value={monsterState.hit_points} onChange={(e) => setMonsterState(prevState => ({ ...prevState, hit_points: parseInt(e.target.value) }))} />
+        <br></br>
+        <label htmlFor="input3">Base Armor: </label>
+        <input type="number" id="input3" name="base_armor" value={monsterState.base_armor} onChange={(e) => setMonsterState(prevState => ({ ...prevState, base_armor: parseInt(e.target.value) }))} />
+        <br></br>
+        <label htmlFor="input4">Attack Rating: </label>
+        <input type="number" id="input4" name="attack" value={monsterState.attack} onChange={(e) => setMonsterState(prevState => ({ ...prevState, attack: parseInt(e.target.value) }))} />
+        <br></br>
+        <label htmlFor="input5">Magic Points: </label>
+        <input type="number" id="input5" name="magic" value={monsterState.magic} onChange={(e) => setMonsterState(prevState => ({ ...prevState, magic: parseInt(e.target.value) }))} />
+        <br></br>
+        <label htmlFor="input5">Movement Speed: </label>
+        <input type="number" id="input5" name="movement" value={monsterState.movement} onChange={(e) => setMonsterState(prevState => ({ ...prevState, movement: parseInt(e.target.value) }))} />
+        <br></br>
+      </form>
+    </div>
+    <div>
+      <form>
+        <label htmlFor="bio">Bio</label><br></br>
+        <textarea id="bio" name="bio" value={monsterState.bio} onChange={(e) => setMonsterState(prevState => ({ ...prevState, bio: e.target.value }))} />
+      </form>
+    </div>
+    <div className='Pictures'>{myArmors}</div>
+    <div className='Pictures'>{myWeapons}</div>
+    <div className='Board' ref={dropBoard}>{myArmorBoard}</div>
+    <div className='Board' ref={dropWeaponBoard}>{myWeaponBoard}</div>
+  </>
   )
 }
 
