@@ -191,11 +191,19 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
     </div>
     <div>
       {viewMonsters()}
+      Armor
       <div className={armorBoard.length>0 ? checkAugments() : 'Board'} ref={dropBoard}>{myArmorBoard}</div>
       <div className={weaponBoard.length>0 ? checkAugments() : 'Board'} ref={dropWeaponBoard}>{myWeaponBoard}</div>
+      Weapon
     </div>
-    <div className='Pictures'>{myArmors}</div>
-    <div className='Pictures'>{myWeapons}</div>
+    <div>
+      <div className='Pictures'>{myArmors}</div>
+      Armors
+    </div>
+    <div>
+      <div className='Pictures'>{myWeapons}</div>
+      Weapons
+    </div>
     <button onClick={handleReset}> RESET </button>
     <button> Save </button>
   </>
