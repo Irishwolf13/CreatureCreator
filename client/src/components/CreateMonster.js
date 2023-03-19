@@ -40,7 +40,18 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
       .then(data => setArmorList(data));
     fetch('http://localhost:3000/weapons')
     .then(response => response.json())
-    .then(data => setWeaponList(data));
+    .then(data => setWeaponList(data))
+    .then(setMonsterState(prevState => ({ ...prevState, 
+      armor_id: 1,
+      weapon_id: 1,
+      level: 1,
+      hit_points: 1,
+      base_armor: 1,
+      attack: 1,
+      magic: 1,
+      movement: 1,
+      bio: ''
+    })))
   },[])
 
   const saveMonster = () => {
@@ -129,10 +140,14 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
   }
 
   const handleReset = () => {
-    setMonsterState(
-      { monster_name: 'Frank',
+    myRest()
+    navigate('/choose/monster')
+  }
+
+  const myRest = () => {
+    setMonsterState(prevState => ({ ...prevState, 
+      monster_name: 'Frank',
       look_id: 1,
-      user_id : 1,
       armor_id: 1,
       weapon_id: 1,
       level: 1,
@@ -142,8 +157,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
       magic: 1,
       movement: 1,
       bio: ''
-    });
-    navigate('/choose/monster')
+    }))
   }
   return (
     <>

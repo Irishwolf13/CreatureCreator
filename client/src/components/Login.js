@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-function Login({ setUser }) {
+function Login({ setUser, monsterState, setMonsterState }) {
   //allow navigation
   const navigate = useNavigate();
 
@@ -28,9 +28,10 @@ function Login({ setUser }) {
     .then(res => {
       if(res.ok){
         res.json().then(obj => {
+          console.log('Change User')
           setUser(obj)
-          console.log('Iran')
-          console.log(obj)
+          setMonsterState(prevState => ({ ...prevState, user_id: obj.id }))
+          console.log('Change monsterState')
           navigate('/choose/monster')
         })
       } else {

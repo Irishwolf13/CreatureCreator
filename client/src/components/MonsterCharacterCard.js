@@ -1,6 +1,6 @@
 import '../App.css';
 
-function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armor_type, movement, bio, handleMonsterDelete }) {
+function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armor_type, armor_image, weapon_image, movement, bio, handleMonsterDelete }) {
 
   const handleClicked = () => {
     fetch(`http://localhost:3000/monsters/${id}`, {
@@ -14,6 +14,8 @@ function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armo
       <div>Character Card</div>
       <div>Name: {monsterName}</div>
       <img className='monsterCard' src={url} alt="A scary monster" />
+      <img className='smallImage' src={armor_image} alt="armor"/>
+      <img className='smallImage' src={weapon_image} alt="armor"/>
       <div>
         <>Level: {level} </>
         <>HitPoints: {HP} </>

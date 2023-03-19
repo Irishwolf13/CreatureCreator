@@ -30,6 +30,8 @@ function ShowMonsters({ user, monsterState }) {
         MP={monster.magic}
         attack={monster.attack}
         armor_type={monster.armor.material}
+        armor_image={monster.armor.image}
+        weapon_image={monster.weapon.image}
         movement={monster.movement}
         bio={monster.bio}
         handleMonsterDelete={handleMonsterDelete}

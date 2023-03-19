@@ -89,7 +89,12 @@ function App() {
           />
           <Route
             path="/login"
-            element={<Login user={user} setUser={setUser}/>}
+            element={<Login 
+                user={user} 
+                setUser={setUser}
+                monsterState={monsterState} 
+                setMonsterState={setMonsterState}
+              />}
           />
           <Route
             path="/signup"

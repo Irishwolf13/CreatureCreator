@@ -6,14 +6,13 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
 
   const [filterName, setFilterName] = useState('');
   const [selectedMonster, setSelectedMonster] = useState('');
-  // console.log(monsterState)
 
   //allow navigation
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // setMonsterState(prevState => ({ ...prevState, user_id: user.id }));
+
     navigate('/create/monster')
   }
 
