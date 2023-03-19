@@ -16,6 +16,7 @@ function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armo
       <img className='monsterCard' src={url} alt="A scary monster" />
       <img className='smallImage' src={armor_image} alt="armor"/>
       <img className='smallImage' src={weapon_image} alt="armor"/>
+      <img className='monsterCardBoarder' src='/card1.png'/>
       <div>
         <>Level: {level} </>
         <>HitPoints: {HP} </>

@@ -29,8 +29,18 @@ img {
   height: 70px;
   width: 25em;
 }
-.monsterCard {
+.createMonsterCard {
   max-width: 200px;
+}
+.monsterCard {
+  position: relative;
+  bottom: 50px;
+  max-width: 150px;
+}
+.monsterCardBoarder {
+  position: relative;
+  right: 330px;
+  max-width: 150px;
 }
 .lookButton {
   border-color: rgb(0, 0, 0);
