@@ -12,7 +12,7 @@ class MonstersController < ApplicationController
 
   def update
     myMonster = Monster.find(params[:id])
-    myMonster.update!(params)
+    myMonster.update!(initial_params)
     render json: myMonster, status: :accepted
   end
 
@@ -29,13 +29,16 @@ class MonstersController < ApplicationController
       :user_id,
       :look_id,
       :armor_id,
-      :weapon_id
+      :weapon_id,
+      :level,
+      :hit_points,
+      :base_armor,
+      :attack,
+      :magic,
+      :movement,
+      :bio
     )
   end
-
-  # def update_params
-  #   params.permit(:user_id,:look_id,:monster_name,:armor_id,:weapon_id,:level,:hit_points,:base_armor,:attack,:magic,:movement,:bio)
-  # end
 
   # def monster_not_found
   #   render json: {error: "Scary! Monster not found"}, status: :not_found

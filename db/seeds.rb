@@ -28,6 +28,13 @@ Look.create(
 
 puts 'seeding armors'
 Armor.create(
+  material: 'None',
+  defense: 0,
+  weight: 0,
+  movement_reduction: 0,
+  image: "https://thumbs.dreamstime.com/z/no-history-armor-icon-simple-thin-line-outline-vector-history-ban-prohibition-embargo-interdict-forbiddance-icons-ui-no-179466654.jpg"
+)
+Armor.create(
   material: 'cloth',
   defense: 1,
   weight: 10,
@@ -50,6 +57,12 @@ Armor.create(
 )
 
 puts 'seeding weapons'
+Weapon.create(
+  style: "None",
+  attack: 0,
+  weight: 0,
+  image: "https://thumbs.dreamstime.com/z/bro-fist-bump-power-five-pound-flat-vector-icon-apps-websites-black-white-173031740.jpg"
+)
 Weapon.create(
   style: "sword",
   attack: 5,

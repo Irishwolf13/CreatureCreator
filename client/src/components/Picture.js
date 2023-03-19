@@ -11,18 +11,17 @@ function Picture({ id, url }) {
     })
   }));
 
-  const handleClick = () => {
-    console.log('iran')
-  }
-
   return(
-    <img
-      onClick={handleClick}
-      ref={drag}
-      src={url}
-      width="150px"
-      // style={{border: isDragging ? "5px solid red" : "0px"}}
-    />
+    <>
+      <div className='imageHolder'>
+        <img
+          ref={drag}
+          src={url}
+          width="150px"
+          // style={{border: isDragging ? "5px solid red" : "0px"}}
+        />
+      </div>
+    </>
   );
 }
 

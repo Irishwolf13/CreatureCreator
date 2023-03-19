@@ -20,7 +20,9 @@ function App() {
   const [monsterState, setMonsterState] = useState(
     { monster_name: 'Frank',
       look_id: 1,
-      user:user.id,
+      user_id : 1,
+      armor_id: 1,
+      weapon_id: 1,
       level: 1,
       hit_points: 1,
       base_armor: 1,
@@ -64,7 +66,7 @@ function App() {
     })
   }
 
-  const updateUser = (user) => setUser(user)
+  // const updateUser = (user) => setUser(user)
   // console.log('My user is:')
   // console.log(user)
   return (

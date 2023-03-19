@@ -1,3 +1,3 @@
 class WeaponSerializer < ActiveModel::Serializer
-  attributes :id, :style, :attack, :weight
+  attributes :id, :style, :attack, :weight, :image
 end

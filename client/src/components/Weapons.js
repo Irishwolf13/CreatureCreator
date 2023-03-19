@@ -11,10 +11,6 @@ function Weapon({ id, url }) {
     })
   }));
 
-  const handleClick = () => {
-    console.log('iran2')
-  }
-
   return(
     <>
       <div className='imageHolder'>

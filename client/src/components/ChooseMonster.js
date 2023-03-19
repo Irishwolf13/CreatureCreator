@@ -13,7 +13,7 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setMonsterState(prevState => ({ ...prevState, user: user.id }));
+    setMonsterState(prevState => ({ ...prevState, user_id: user.id }));
     navigate('/create/monster')
   }
 
