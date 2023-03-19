@@ -44,6 +44,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
   },[])
 
   const saveMonster = () => {
+    console.log(monsterState)
     fetch('http://localhost:3000/monsters',{
       method: 'POST',
       headers: {'content-type': 'application/json'},
@@ -92,7 +93,6 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
     setWeaponBoard(newWeaponBoard)
     setMonsterState(prevState => ({ ...prevState, weapon_id: 1 }));
   }
-// console.log(monsterState)
 
   const myArmorBoard = armorBoard.map((armor) => {
     return (
@@ -131,16 +131,18 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
   const handleReset = () => {
     setMonsterState(
       { monster_name: 'Frank',
-        look_id: 1,
-        user: user.id,
-        level: 1,
-        hit_points: 1,
-        base_armor: 1,
-        attack: 1,
-        magic: 1,
-        movement: 1,
-        bio: ''
-      })
+      look_id: 1,
+      user_id : 1,
+      armor_id: 1,
+      weapon_id: 1,
+      level: 1,
+      hit_points: 1,
+      base_armor: 1,
+      attack: 1,
+      magic: 1,
+      movement: 1,
+      bio: ''
+    });
     navigate('/choose/monster')
   }
   return (

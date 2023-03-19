@@ -16,7 +16,7 @@ import Signup from './components/Signup';
 function App() {
   //allow navigation
   const navigate = useNavigate();
-  const [user, setUser] = useState({user_id: 0})
+  const [user, setUser] = useState({user_id: 1})
   const [monsterState, setMonsterState] = useState(
     { monster_name: 'Frank',
       look_id: 1,
@@ -69,6 +69,9 @@ function App() {
   const handleShowMonsters = () => {
     navigate('/show/monsters/')
   }
+  const handleCreateMonsters = () => {
+    navigate('/choose/monster')
+  }
 
   // const updateUser = (user) => setUser(user)
   // console.log('My user is:')
@@ -78,7 +81,7 @@ function App() {
       <DndProvider backend={ HTML5Backend }>
         <button onClick={handleLogOut}>LogOut</button>
         <button onClick={handleShowMonsters}>Show My Monsters</button>
-        <button onClick={handleShowMonsters}>Create a Monster</button>
+        <button onClick={handleCreateMonsters}>Create a Monster</button>
         <Routes>
           <Route
             path="/"
@@ -86,7 +89,7 @@ function App() {
           />
           <Route
             path="/login"
-            element={<Login setUser={setUser}/>}
+            element={<Login user={user} setUser={setUser}/>}
           />
           <Route
             path="/signup"

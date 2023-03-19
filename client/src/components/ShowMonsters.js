@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MonsterCharacterCard from './MonsterCharacterCard';
 
-function ShowMonsters({ user, monsterState, setMonsterState }) {
+function ShowMonsters({ user, monsterState }) {
   //allow navigation
   const navigate = useNavigate();
   const [myMonster, setMyMonster] = useState([])
@@ -22,9 +22,16 @@ function ShowMonsters({ user, monsterState, setMonsterState }) {
     return myMonster.map(monster => (
       <MonsterCharacterCard
         key={monster.id}
-        url={monster.look.image}
-        monsterName={monster.monster_name}
         id={monster.id}
+        url={monster.look.image}
+        level={monster.level}
+        monsterName={monster.monster_name}
+        HP={monster.hit_points}
+        MP={monster.magic}
+        attack={monster.attack}
+        armor_type={monster.armor.material}
+        movement={monster.movement}
+        bio={monster.bio}
         handleMonsterDelete={handleMonsterDelete}
       />
     ))

@@ -13,7 +13,7 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setMonsterState(prevState => ({ ...prevState, user_id: user.id }));
+    // setMonsterState(prevState => ({ ...prevState, user_id: user.id }));
     navigate('/create/monster')
   }
 
@@ -42,6 +42,7 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
           Creature Name:
           <input type="text" value={monsterState.monster_name} onChange={(e) => setMonsterState(prevState => ({ ...prevState, monster_name: e.target.value }))} />
         </label>
+        <br></br>
         <button type="submit">Create Monster</button>
       </form>
       <label>
