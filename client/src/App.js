@@ -66,6 +66,10 @@ function App() {
     })
   }
 
+  const handleShowMonsters = () => {
+    navigate('/show/monsters/')
+  }
+
   // const updateUser = (user) => setUser(user)
   // console.log('My user is:')
   // console.log(user)
@@ -73,6 +77,8 @@ function App() {
     <div className="App">
       <DndProvider backend={ HTML5Backend }>
         <button onClick={handleLogOut}>LogOut</button>
+        <button onClick={handleShowMonsters}>Show My Monsters</button>
+        <button onClick={handleShowMonsters}>Create a Monster</button>
         <Routes>
           <Route
             path="/"
@@ -97,7 +103,11 @@ function App() {
           />
           <Route
             path="/show/monsters/"
-            element={<ShowMonsters />}
+            element={<ShowMonsters 
+              user={user} 
+              monsterState={monsterState} 
+              setMonsterState={setMonsterState}
+            />}
           />
           <Route
             path="/create/monster/"

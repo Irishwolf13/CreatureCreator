@@ -5,6 +5,10 @@ class MonstersController < ApplicationController
     render json: Monster.all(), status: :ok
   end
 
+  def show
+    render json: Monster.where(user_id: params[:id]), status: :ok
+  end
+
   def create
     myMonster = Monster.create!(initial_params)
     render json: myMonster, status: :created
@@ -18,7 +22,8 @@ class MonstersController < ApplicationController
 
   def destroy
     Monster.find(params[:id]).destroy
-    head :no_content
+    myMonsters = User.find_by(id: params[:user_id])
+    render json: myMonsters, status: :ok
   end
 
   private
