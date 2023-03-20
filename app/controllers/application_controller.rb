@@ -1,4 +1,4 @@
-# require 'byebug'
+require 'byebug'
 class ApplicationController < ActionController::API
   # protect_from_forgery with: :exception
   # skip_before_action :verify_authenticity_token
@@ -7,7 +7,7 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
-  # before_action :authorize
+  before_action :authorize
 
   private
   def record_invalid error
@@ -20,9 +20,10 @@ class ApplicationController < ActionController::API
   end
 
   def authorize
-    frank = User.find_by(id: session[:user_id])
+    # @frank = User.find_by(id: session[:user_id]) -USE THIS WHEN YOU FIRGURE SHIT OUT.
+    @frank = User.find(1)
     # byebug
-    render json: {errors: "#{frank}"}, status: :unauthorized unless frank
+    render json: {errors: "Hello World: #{@frank}"}, status: :unauthorized unless @frank
   end
 
   private
