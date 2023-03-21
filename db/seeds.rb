@@ -18,12 +18,36 @@ Look.create(
   image: 'https://cdna.artstation.com/p/assets/images/images/056/275/424/small/alekzander-zagorulko-greenskin-barbarian.jpg?1668857673'
 )
 Look.create(
-  race: 'undead',
+  race: 'undead warrior',
   image: 'https://cdnb.artstation.com/p/assets/images/images/052/636/925/small/alekzander-zagorulko-undex-caster.jpg?1660296531'
 )
 Look.create(
   race: 'flame',
   image: 'https://cdna.artstation.com/p/assets/images/images/057/354/168/small/olekzandr-zahorulko-flame-warrior.jpg?1671388530'
+)
+Look.create(
+  race: 'oracle',
+  image: 'https://cdnb.artstation.com/p/assets/images/images/055/161/173/small/alekzander-zagorulko-fire-oracle.jpg?1666263108'
+)
+Look.create(
+  race: 'troll',
+  image: 'https://cdnb.artstation.com/p/assets/images/images/054/915/473/small/alekzander-zagorulko-bridge-troll.jpg?1665665904'
+)
+Look.create(
+  race: 'undead priest',
+  image: 'https://cdnb.artstation.com/p/assets/images/images/052/637/547/small/alekzander-zagorulko-unholy-priest.jpg?1660297802'
+)
+Look.create(
+  race: 'Riding Raptor',
+  image: 'https://cdna.artstation.com/p/assets/images/images/052/247/644/small/alekzander-zagorulko-riding-raptor.jpg?1659343787'
+)
+Look.create(
+  race: 'Forest Crusher',
+  image: 'https://cdna.artstation.com/p/assets/images/images/050/702/032/small/alekzander-zagorulko-forest-crusher.jpg?1655470543'
+)
+Look.create(
+  race: 'Forest Shaman',
+  image: 'https://cdna.artstation.com/p/assets/images/images/054/675/356/small/alekzander-zagorulko-thicket-shaman.jpg?1665081121'
 )
 
 puts 'seeding armors'

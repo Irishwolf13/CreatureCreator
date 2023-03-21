@@ -1,4 +1,4 @@
-require 'byebug'
+# require 'byebug'
 class ApplicationController < ActionController::API
   # protect_from_forgery with: :exception
   # skip_before_action :verify_authenticity_token
@@ -16,6 +16,7 @@ class ApplicationController < ActionController::API
 
   def current_user
     user = User.find_by(id: session[:user_id])
+    # byebug
     user
   end
 

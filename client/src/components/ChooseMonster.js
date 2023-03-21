@@ -10,15 +10,10 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
   //allow navigation
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    navigate('/create/monster')
-  }
-
-  const handleClick = (lookID) => {
+  const handleAvatarClicked = (lookID) => {
     setMonsterState(prevState => ({ ...prevState, look_id: lookID}));
     setSelectedMonster(prevState => ({ ...prevState, look_id: lookID}));
+    navigate('/create/monster')
   }
 
   const viewMonsters = () => {
@@ -27,7 +22,8 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
         key={monster.id}
         url={monster.image}
         id={monster.id}
-        onClick={() => handleClick(monster.id)}
+        race={monster.race}
+        onClick={() => handleAvatarClicked(monster.id)}
         selected={selectedMonster.look_id === monster.id}
       />
     ))
@@ -36,19 +32,20 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
   return (
     <>
       <div>Create Monsters</div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label>
           Creature Name:
           <input type="text" value={monsterState.monster_name} onChange={(e) => setMonsterState(prevState => ({ ...prevState, monster_name: e.target.value }))} />
         </label>
         <br></br>
-        <button type="submit">Create Monster</button>
       </form>
       <label>
         Filter by Name:
         <input type="text" value={filterName} onChange={(e) => setFilterName(e.target.value)} />
       </label>
+      <div>Select Avatar</div>
       <div className='looks'>
+        
         {viewMonsters()}
       </div>
     </>

@@ -16,22 +16,27 @@ import Signup from './components/Signup';
 function App() {
   //allow navigation
   const navigate = useNavigate();
+  const initalState = { 
+    monster_name: 'Frank',
+    look_id: 1,
+    user_id : 1,
+    armor_id: 1,
+    weapon_id: 1,
+    level: 1,
+    hit_points: 1,
+    base_armor: 1,
+    attack: 1,
+    magic: 1,
+    movement: 1,
+    bio: ''
+  }
+  
+  const [armorBoard, setArmorBoard] = useState([])
+  const [weaponBoard, setWeaponBoard] = useState([])
+  
   const [user, setUser] = useState({user_id: 1})
-  const [monsterState, setMonsterState] = useState(
-    { monster_name: 'Frank',
-      look_id: 1,
-      user_id : 1,
-      armor_id: 1,
-      weapon_id: 1,
-      level: 1,
-      hit_points: 1,
-      base_armor: 1,
-      attack: 1,
-      magic: 1,
-      movement: 1,
-      bio: ''
-    });
   const [monsters, setMonsters] = useState([]);
+  const [monsterState, setMonsterState] = useState(initalState);
 
   useEffect(() => {
     fetch('/authorized')
@@ -70,6 +75,9 @@ function App() {
     navigate('/show/monsters/')
   }
   const handleCreateMonsters = () => {
+    setMonsterState(initalState)
+    setArmorBoard([])
+    setWeaponBoard([])
     navigate('/choose/monster')
   }
 
@@ -81,7 +89,7 @@ function App() {
       <DndProvider backend={ HTML5Backend }>
         <button onClick={handleLogOut}>LogOut</button>
         <button onClick={handleShowMonsters}>Show My Monsters</button>
-        <button onClick={handleCreateMonsters}>Create a Monster</button>
+        <button onClick={handleCreateMonsters}>New Monster</button>
         <Routes>
           <Route
             path="/"
@@ -124,6 +132,10 @@ function App() {
               monsterState={monsterState} 
               setMonsterState={setMonsterState}
               monsters={monsters}
+              setArmorBoard={setArmorBoard}
+              setWeaponBoard={setWeaponBoard}
+              armorBoard={armorBoard}
+              weaponBoard={weaponBoard}
               />}
           />
         </Routes>

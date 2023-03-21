@@ -2,15 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useDrop } from 'react-dnd'
 import Picture from './Picture';
 import Weapons from './Weapons';
-import MonsterImageCard from './MonsterImageCard.js'
+import MonsterImageCard2 from './MonsterImageCard2.js'
 import { useNavigate } from 'react-router-dom';
-
-function CreateMonster({user, setMonsterState, monsterState, monsters}) {
+// setArmorBoard={setArmorBoard}
+// setWeaponBoard={setWeaponBoard}
+// armorBoard={armorBoard}
+// weaponBoard={weaponBoard}
+function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBoard,setWeaponBoard,armorBoard,weaponBoard}) {
   //allow navigation
   const navigate = useNavigate();
   //States
-  const [armorBoard, setArmorBoard] = useState([])
-  const [weaponBoard, setWeaponBoard] = useState([])
+  // const [armorBoard, setArmorBoard] = useState([])
+  // const [weaponBoard, setWeaponBoard] = useState([])
   const [deletedItems, setDeletedItems] = useState([])
   const [armorList, setArmorList] = useState([])
   const [weaponList, setWeaponList] = useState([])
@@ -41,17 +44,17 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
     fetch('http://localhost:3000/weapons')
     .then(response => response.json())
     .then(data => setWeaponList(data))
-    .then(setMonsterState(prevState => ({ ...prevState, 
-      armor_id: 1,
-      weapon_id: 1,
-      level: 1,
-      hit_points: 1,
-      base_armor: 1,
-      attack: 1,
-      magic: 1,
-      movement: 1,
-      bio: ''
-    })))
+    // .then(setMonsterState(prevState => ({ ...prevState, 
+    //   armor_id: 1,
+    //   weapon_id: 1,
+    //   level: 1,
+    //   hit_points: 1,
+    //   base_armor: 1,
+    //   attack: 1,
+    //   magic: 1,
+    //   movement: 1,
+    //   bio: ''
+    // })))
   },[])
 
   const saveMonster = () => {
@@ -62,7 +65,8 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
       body: JSON.stringify(monsterState)
     })
     .then(res => res.json())
-    .then(console.log('iran'))
+    .then(handleReset())
+    .then(alert('Monster Saved!'))
   }
 
   // Adding images to boards
@@ -90,7 +94,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
     return <Weapons key={ weapon.id } id={ weapon.id } url={ weapon.image }/>
   })
 
-  const removeImage = (id) => {
+  const removeArmor = (id) => {
     const filteredPictures = armorBoard.filter((armor) => id == armor.id)
     const newArmorBoard = armorBoard.filter((armor) => id !== armor.id)
     setDeletedItems([...deletedItems, filteredPictures[0]])
@@ -109,7 +113,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
     return (
       <div key={armor.id}>
         <Picture id={armor.id} url={armor.image}  />
-        <button onClick={() => removeImage(armor.id)}> Remove </button>
+        <button onClick={() => removeArmor(armor.id)}> Remove </button>
       </div>
     );
   });
@@ -125,11 +129,10 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
 
   const viewMonsters = () => {
     return monsters.filter(monster => monster.id === monsterState.look_id).map(monster => (
-      <MonsterImageCard
+      <MonsterImageCard2
         key={monster.id}
         url={monster.image}
-        id={monster.id}
-        selected={monsterState.selectedButton === monster.id}
+        handleReselectAvatar={handleReselectAvatar}
       />
     ))
   };
@@ -141,13 +144,16 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
 
   const handleReset = () => {
     myRest()
+    setArmorBoard([])
+    setWeaponBoard([])
+    // navigate('/choose/monster')
+  }
+  const handleReselectAvatar = () => {
     navigate('/choose/monster')
   }
-
   const myRest = () => {
     setMonsterState(prevState => ({ ...prevState, 
       monster_name: 'Frank',
-      look_id: 1,
       armor_id: 1,
       weapon_id: 1,
       level: 1,
@@ -207,7 +213,8 @@ function CreateMonster({user, setMonsterState, monsterState, monsters}) {
       <div className='Pictures'>{myWeapons}</div>
       Weapons
     </div>
-    <button onClick={handleReset}> RESET </button>
+    <button onClick={handleReselectAvatar}>Reselect Avatar</button>
+    <button onClick={handleReset}> Rest Attributes </button>
     <button onClick={saveMonster}> Save Monster </button>
   </>
   )
