@@ -9,6 +9,10 @@ class MonstersController < ApplicationController
     render json: Monster.where(user_id: params[:id]), status: :ok
   end
 
+  def showOne
+    render json: Monster.find(params[:id]), status: :ok
+  end
+
   def create
     myMonster = Monster.create!(initial_params)
     render json: myMonster, status: :created

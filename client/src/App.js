@@ -11,13 +11,14 @@ import CreateMonster from './components/CreateMonster';
 import ChooseMonster from './components/ChooseMonster';
 import Login from './components/Login';
 import ShowMonsters from './components/ShowMonsters';
+import ShowMyMonster from './components/ShowMyMonster';
 import Signup from './components/Signup';
 
 function App() {
   //allow navigation
   const navigate = useNavigate();
   const initalState = { 
-    monster_name: 'Frank',
+    monster_name: 'not Frank',
     look_id: 1,
     user_id : 1,
     armor_id: 1,
@@ -123,6 +124,19 @@ function App() {
               user={user} 
               monsterState={monsterState} 
               setMonsterState={setMonsterState}
+            />}
+          />
+          <Route
+            path="/show/monster/:id"
+            element={<ShowMyMonster 
+              user={user} 
+              monsterState={monsterState} 
+              setMonsterState={setMonsterState}
+              monsters={monsters}
+              setArmorBoard={setArmorBoard}
+              setWeaponBoard={setWeaponBoard}
+              armorBoard={armorBoard}
+              weaponBoard={weaponBoard}
             />}
           />
           <Route
