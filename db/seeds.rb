@@ -63,21 +63,28 @@ Armor.create(
   defense: 1,
   weight: 10,
   movement_reduction: 0,
-  image: "https://cdnb.artstation.com/p/assets/images/images/013/038/003/small/alekzander-zagorulko-insta-003.jpg?1537781480"
+  image: "http://cloud-3.steamusercontent.com/ugc/2042984690529029903/CA58EF737CFB7C388383D1547CA642498A7F61A8/"
 )
 Armor.create(
   material: 'leather',
   defense: 5,
   weight: 20,
   movement_reduction: 2,
-  image: "https://cdna.artstation.com/p/assets/images/images/012/973/582/small/alekzander-zagorulko-insta-001.jpg?1537441984"
+  image: "http://cloud-3.steamusercontent.com/ugc/2042984690529030495/37B49E15A1FF66D29397D97109325ED5D1B2904B/"
 )
 Armor.create(
   material: 'chain',
   defense: 10,
   weight: 40,
   movement_reduction: 4,
-  image: "https://cdnb.artstation.com/p/assets/images/images/012/993/283/small/alekzander-zagorulko-insta-002.jpg?1537528894"
+  image: "http://cloud-3.steamusercontent.com/ugc/2042984690529031712/B5AFEAFB7CD650FEFA0707EDDBCAAA46A38D42E9/"
+)
+Armor.create(
+  material: 'magical',
+  defense: 10,
+  weight: 40,
+  movement_reduction: 4,
+  image: "http://cloud-3.steamusercontent.com/ugc/2042984690529031096/1F736D9D60E147B2723BC7C3E24E7B3CE83128B5/"
 )
 
 puts 'seeding weapons'
@@ -91,13 +98,25 @@ Weapon.create(
   style: "sword",
   attack: 5,
   weight: 1,
-  image: "https://cdna.artstation.com/p/assets/images/images/018/306/216/small/alekzander-zagorulko-inst-007.jpg?1558896034"
+  image: "http://cloud-3.steamusercontent.com/ugc/2042984690528986021/51D56CF301E09EF74EF32C22A1287DDFA1A0E983/"
 )
 Weapon.create(
-  style: "axe",
+  style: "stone axe",
   attack: 8,
   weight: 2,
-  image: "https://cdna.artstation.com/p/assets/images/images/015/392/436/small/alekzander-zagorulko-insta-007.jpg?1548166877"  
+  image: "http://cloud-3.steamusercontent.com/ugc/2042984690528993900/76F44796A5A3B3031EFFA8F93B007CC5AF35C857/"  
+)
+Weapon.create(
+  style: "iron axe",
+  attack: 12,
+  weight: 4,
+  image: "http://cloud-3.steamusercontent.com/ugc/2042984690528994609/AA652C203CDD02734B704E306343A0A6B3C4C621/"  
+)
+Weapon.create(
+  style: "knife",
+  attack: 3,
+  weight: 1,
+  image: "http://cloud-3.steamusercontent.com/ugc/2042984690528984802/49F31920C43E2740793CB62F38753918DE02B986/"  
 )
 puts 'Creating Monsters'
 Monster.create(

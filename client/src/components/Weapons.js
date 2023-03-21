@@ -15,9 +15,9 @@ function Weapon({ id, url }) {
     <>
       <div className='imageHolder'>
         <img
+          className='selectionImages'
           ref={drag}
           src={url}
-          width="150px"
           // style={{ border: isDragging ? "2px solid blue" : "0px" }}
         />
       </div>

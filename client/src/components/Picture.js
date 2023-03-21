@@ -15,9 +15,9 @@ function Picture({ id, url }) {
     <>
       <div className='imageHolder'>
         <img
+          className='selectionImages'
           ref={drag}
           src={url}
-          width="150px"
           // style={{border: isDragging ? "5px solid red" : "0px"}}
         />
       </div>

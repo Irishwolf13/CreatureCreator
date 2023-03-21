@@ -13,15 +13,15 @@ img {
 
 .Board {
   display: inline-block;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border: 2px solid black;
 }
 
 .fullBoard {
   display: inline-block;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 170px;
   border: 2px solid rgb(255, 0, 0);
 }
 .textBox {
@@ -55,7 +55,9 @@ img {
 .lookButton:hover {
   filter: brightness(1);
 }
-
+.selectionImages {
+  width: 120px;
+}
 .imageHolder {
   position: relative;
   display: inline-block;
