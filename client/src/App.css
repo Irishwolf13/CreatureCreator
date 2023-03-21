@@ -39,6 +39,7 @@ img {
 }
 .monsterCardBoarder {
   position: relative;
+  bottom: 10px;
   right: 330px;
   max-width: 150px;
 }

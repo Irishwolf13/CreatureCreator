@@ -154,7 +154,7 @@ function ShowMyMonster({user, setMonsterState, monsterState, monsters,setArmorBo
     myRest()
     setArmorBoard([])
     setWeaponBoard([])
-    // navigate('/choose/monster')
+    navigate('/show/monsters')
   }
   const handleReselectAvatar = () => {
     navigate('/choose/monster')
@@ -222,9 +222,9 @@ function ShowMyMonster({user, setMonsterState, monsterState, monsters,setArmorBo
       <div className='Pictures'>{myWeapons}</div>
       Weapons
     </div>
-    <button onClick={handleReselectAvatar}>Reselect Avatar</button>
-    <button onClick={handleReset}> Rest Attributes </button>
-    <button onClick={updateMonster}> Save Monster </button>
+    {/* <button onClick={handleReselectAvatar}>Reselect Avatar</button>
+    <button onClick={handleReset}> Rest Attributes </button> */}
+    <button onClick={updateMonster}> Update Monster </button>
   </>
   )
 }
