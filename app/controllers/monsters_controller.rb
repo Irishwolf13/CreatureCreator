@@ -1,5 +1,5 @@
 class MonstersController < ApplicationController
-  # rescue_from ActiveRecord::RecordNotFound, with: :monster_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :monster_not_found
 
   def index
     render json: Monster.all(), status: :ok
@@ -49,8 +49,8 @@ class MonstersController < ApplicationController
     )
   end
 
-  # def monster_not_found
-  #   render json: {error: "Scary! Monster not found"}, status: :not_found
-  # end
+  def monster_not_found
+    render json: {error: "Scary! Monster not found"}, status: :not_found
+  end
 
 end

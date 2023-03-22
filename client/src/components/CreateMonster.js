@@ -58,15 +58,19 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
   },[])
 
   const saveMonster = () => {
-    console.log(monsterState)
     fetch('http://localhost:3000/monsters',{
       method: 'POST',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify(monsterState)
     })
-    .then(res => res.json())
-    .then(handleReset())
-    .then(alert('Monster Saved!'))
+    .then(res => {
+      if (res.ok) {
+        alert('Monster Saved!');
+      }
+      return res.json();
+    })
+    .then(data => {console.log(data);})
+    .catch(error => alert(`Error: ${error.message}`))
   }
 
   // Adding images to boards

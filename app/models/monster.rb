@@ -4,4 +4,8 @@ class Monster < ApplicationRecord
   belongs_to :armor
   belongs_to :weapon
   has_many :join_games
+
+  validates :monster_name, presence: { message: "A Scary monster must have a name" }
+  validates :movement, presence: { message: "A scary monster must have movement" }
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 end

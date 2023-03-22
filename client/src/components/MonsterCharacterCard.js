@@ -6,15 +6,12 @@ function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armo
   const navigate = useNavigate();
   
   let src;
-  switch (monsterName) {
-    case "frank":
+  switch (true) {
+    case level > 10:
       src = 'http://cloud-3.steamusercontent.com/ugc/2042984690529224232/F60F430287941F7F6BFBAA29B1C7AF29BE99330A/';
       break;
-    case "":
-      src = 2;
-      break;
-    case "http://cloud-3.steamusercontent.com/ugc/2042984690529165000/768B0F9519797294A9A1251EA5015ACA97ED8C02/":
-      src = 3;
+    case level > 1 && level <= 10:
+      src = 'http://cloud-3.steamusercontent.com/ugc/2042984690529165000/768B0F9519797294A9A1251EA5015ACA97ED8C02/';
       break;
     default:
       src = "http://cloud-3.steamusercontent.com/ugc/2042984690529132886/6A9ADA28F588800BF91D9B414E802A48C8839BB8/";
